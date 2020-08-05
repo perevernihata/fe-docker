@@ -1,7 +1,10 @@
 /* eslint-disable */
 import { DOMRegistry } from 'react-dom-components';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import authorWatch from './watch';
 import SearchPageDOM from "./components/Page/SearchPageDOM";
+import ConsonantPage from "./components/Page/ConsonantPage";
 import CollectionPageDOM from "./components/Page/CollectionPageDOM";
 import ConsonantPageDOM from "./components/Page/ConsonantPageDOM";
 
@@ -32,7 +35,18 @@ window.dexter.dxf.registerApp = (app) => {
 window.dexter.dxf.registerApp(initReact);
 
 
+class WrapperCardCollectionComponent {
+    constructor(config, element) {
+        console.log("!!!!!!!!!!!!!!!!!!!!!!!");
+        
+        console.log(config);
+        ReactDOM.render((<React.Fragment>
+            <ConsonantPage config={config} />
+        </React.Fragment>), element);
+    }
+}
 
+window.WrapperCardCollectionComponent = WrapperCardCollectionComponent;
 
 
 
